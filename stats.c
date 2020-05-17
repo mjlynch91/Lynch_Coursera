@@ -9,13 +9,16 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.c
+ * @brief C program to compute basic stats of a data array
  *
- * <Add Extended Description Here>
+ * The program defines a data array of unsigned chars of a given size, defined in the preprocessor.
+ * The program uses functions to compute the mean, median, maximum, and minimum of the data in the array.
+ * The is also a function to sort the data from smallest to largest. The program then prints the stats
+ * to the standard output.
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author Joey Lynch
+ * @date May 17, 2020
  *
  */
 
@@ -36,8 +39,15 @@ void main() {
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
   /* Other Variable Declarations Go Here */
+  unsigned char median = 51;
+  unsigned char mean = 44;
+  unsigned char min = 2;
+  unsigned char max = 99;
   /* Statistics and Printing Functions Go Here */
-
+	print_statistics(median, mean, max, min);
 }
 
 /* Add other Implementation File Code Here */
+void print_statistics(unsigned char med, unsigned char mean, unsigned char max, unsigned char min){
+	printf("Median = %d\nMean = %d\nMax = %d\nMin = %d\n",med, mean, max, min);
+};
