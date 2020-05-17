@@ -37,7 +37,7 @@
  * 
  * @return none
  */
-void print_statistics(unsigned char med, unsigned char mean, unsigned char max, unsigned char min);
+void print_statistics(int med, int mean, int max, int min);
 
 
 
@@ -62,7 +62,7 @@ void print_array(unsigned char* data, int length);
  *
  * @return The median value of the array
  */
-unsigned char find_median(unsigned char* data, int length);
+int find_median(unsigned char* data, int length);
 
 
 
@@ -75,7 +75,7 @@ unsigned char find_median(unsigned char* data, int length);
  *
  * @return The mean value of the array
  */
-unsigned char find_mean(unsigned char* data, int length);
+int find_mean(unsigned char* data, int length);
 
 
 
@@ -87,7 +87,7 @@ unsigned char find_mean(unsigned char* data, int length);
  *
  * @return The maximum value of the array
  */
-unsigned char max(unsigned char* data, int length);
+int find_max(unsigned char* data, int length);
 
 
 
@@ -99,7 +99,7 @@ unsigned char max(unsigned char* data, int length);
  *
  * @return The minimum value of the array
  */
-unsigned char min(unsigned char* data, int length);
+int find_min(unsigned char* data, int length);
 
 
 
@@ -113,10 +113,22 @@ unsigned char min(unsigned char* data, int length);
  * @param data pointer to data array of unsigned char
  * @param length the length of the data array
  *
- * @return The sorted array
+ * @return none
  */
-unsigned char max(unsigned char* data, int length);
+void sort(unsigned char* data, int length);
 
+
+
+/**
+ * @brief swaps the positions of two unsigned char elements of an array
+ *
+ *
+ * @param p element 1
+ * @param q element 2
+ *
+ * @return none
+*/
+void swap(unsigned char* p, unsigned char* q);
 
 
 #endif /* __STATS_H__ */

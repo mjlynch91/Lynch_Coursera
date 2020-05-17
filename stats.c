@@ -25,6 +25,7 @@
 
 
 #include <stdio.h>
+#include <limits.h>
 #include "stats.h"
 
 /* Size of the Data Set */
@@ -39,15 +40,93 @@ void main() {
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
   /* Other Variable Declarations Go Here */
-  unsigned char median = 51;
-  unsigned char mean = 44;
-  unsigned char min = 2;
-  unsigned char max = 99;
+	int median;
+	int mean;
+	int min;
+	int max;
+	
   /* Statistics and Printing Functions Go Here */
+	printf("Your inital array (before sorting) is:\n");
+	print_array(test, SIZE);
+  
+	median = find_median(test, SIZE);
+	mean = find_mean(test, SIZE);
+	min = find_min(test, SIZE);
+	max = find_max(test, SIZE);
+	
+	printf("Your array after sorting is:\n");
+	sort(test, SIZE);
+	print_array(test, SIZE);
 	print_statistics(median, mean, max, min);
+	
 }
 
 /* Add other Implementation File Code Here */
-void print_statistics(unsigned char med, unsigned char mean, unsigned char max, unsigned char min){
+
+void print_statistics(int med, int mean, int max, int min){
 	printf("Median = %d\nMean = %d\nMax = %d\nMin = %d\n",med, mean, max, min);
+};
+
+void print_array(unsigned char* data, int length){
+	int i;
+	printf("The length of your array is %d\nHere are the elements of your array:\n",length);
+	for(i = 0; i < length; i++){
+		printf("%d\n",data[i]);
+	};
+};
+
+void swap(unsigned char* p, unsigned char* q){
+	unsigned char t = *p;
+	*p = *q;
+	*q = t;
+};
+
+void sort(unsigned char* data, int length){
+	int i,j;
+	for(i = 0; i < length-1; i++){
+		for(j = 0; j < length-i-1; j++){
+			if(data[j] < data[j+1]){
+				swap(&data[j],&data[j+1]);
+			};
+		};
+	};
+};
+
+int find_median(unsigned char* data, int length){
+	int n = (length+1)/2 - 1;
+	sort(data, length); //sort data in case it isn't already
+	int median = data[n];
+	return median;
+};
+
+int find_mean(unsigned char* data, int length){
+	int i;
+	int sum = 0;
+	for(i = 0; i < length-1; i++){
+		sum += data[i];
+	};
+	int mean = sum/length;
+	return mean;
+};
+
+int find_max(unsigned char* data, int length){
+	int i = 0;
+	int temp = 0;
+	for(i = 0; i < length -1; i++){
+		if(data[i] > temp){
+			temp = data[i];
+		};
+	};
+	return temp;
+};
+
+int find_min(unsigned char* data, int length){
+	int i = 0;
+	int temp = INT_MAX;
+	for(i = 0; i < length -1; i++){
+		if(data[i] < temp){
+			temp = data[i];
+		};
+	};
+	return temp;
 };
