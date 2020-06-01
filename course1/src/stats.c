@@ -17,8 +17,8 @@
  * The is also a function to sort the data from smallest to largest. The program then prints the stats
  * to the standard output.
  *
- * @author Joey Lynch
- * @date May 17, 2020
+ * @author Joey Lynch 
+ * @date May 17, 2020 (Modified June 1 2020)
  *
  */
 
@@ -67,13 +67,19 @@ void print_statistics(int med, int mean, int max, int min){
 	printf("Median = %d\nMean = %d\nMax = %d\nMin = %d\n",med, mean, max, min);
 };
 
-void print_array(unsigned char* data, int length){
-	int i;
-	printf("The length of your array is %d\nHere are the elements of your array:\n",length);
-	for(i = 0; i < length; i++){
-		printf("%d\n",data[i]);
+//If the user gives the flag -DVERBOSE then print_array will print the array. If the user doesn't give that flag print_array does nothing.
+//Compile time switch
+#ifdef VERBOSE
+	void print_array(unsigned char* data, int length){
+		int i;
+		printf("The length of your array is %d\nHere are the elements of your array:\n",length);
+		for(i = 0; i < length; i++){
+			printf("%d\n",data[i]);
+		};
 	};
-};
+#else
+	void print_array(unsigned char* data, int length){};
+#endif
 
 void swap(unsigned char* p, unsigned char* q){
 	unsigned char t = *p;

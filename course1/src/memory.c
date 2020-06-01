@@ -16,7 +16,7 @@
  * writing to memory via function calls. There is also a globally
  * allocated buffer array used for manipulation.
  *
- * @author Alex Fosdick
+ * @author Alex Fosdick (Modified by Joey Lynch June 1 2020)
  * @date April 1 2017
  *
  */

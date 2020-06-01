@@ -15,7 +15,7 @@
  * This header file provides an abstraction of reading and
  * writing to memory via function calls. 
  *
- * @author Alex Fosdick
+ * @author Alex Fosdick (Modified by Joey Lynch June 1 2020)
  * @date April 1 2017
  *
  */
@@ -89,5 +89,89 @@ void set_all(char * ptr, char value, unsigned int size);
  * @return void.
  */
 void clear_all(char * ptr, unsigned int size);
+
+/**
+ * @brief Moves data from one location in memory to another location
+ *
+ *	The behavior of the function handles overlap of source and destination.
+ *	Copy will occur with no data corruption.
+ *
+ * @param src Pointer to source location
+ * @param dst Pointer to destination location
+ * @param length Length of bytes to move 
+ *
+ * @return pointer to destination
+ */
+uint8_t* my_memmove(uint8_t* src, uint8_t* dst, sizt_t length);
+
+/**
+ * @brief Copies data from one location in memory to another location
+ *
+ *	The behavior is undefined if there is overlap of source and destination.
+ *	Copy will still occur, but will likely corrupt data.
+ *	
+ * @param src Pointer to source location
+ * @param dst Pointer to destination location
+ * @param length Length of bytes to move 
+ *
+ * @return pointer to destination
+ */
+uint8_t* my_memcopy(uint8_t* src, uint8_t* dst, size_t length);
+
+/**
+ * @brief Sets all memory locations to a specific value
+ *
+ *	The behavior is undefined if there is overlap of source and destination.
+ *	Copy will still occur, but will likely corrupt data.
+ *	
+ * @param src Pointer to source location
+ * @param length Length of bytes to set to given value
+ * @param value 8-bit unsigned integer to be stored in memory at all the specified locations
+ *
+ * @return pointer to source
+ */ 
+uint8_t* my_memset(uint8_t* src, size_t length, uint8_t value);
+ 
+/**
+ * @brief Sets a given amount of memory at a given location to zeros
+ *
+ *	
+ * @param src Pointer to source location
+ * @param length Length of bytes to set to zero
+ *
+ * @return pointer to source
+ */ 
+uint8_t* my_memzero(uint8_t* src, size_t length);
+
+/**
+ * @brief Reverses the order of all bytes from a starting location to a specified length
+ *
+ *	
+ * @param src Pointer to source location
+ * @param length Length of bytes until the end of block to be reversed
+ *
+ * @return pointer to source
+ */ 
+uint8_t* my_reverse(uint8_t* src, size_t length);
+
+/**
+ * @brief Reserve a certain number of words in dynamic memory
+ *
+ *	
+ * @param length Length of bytes to be allocated
+ *
+ * @return pointer to memory if successful, or Null Pointer if not successful
+ */
+int32_t* resrve_words(size_t length);
+
+/**
+ * @brief Free dynamic memory allocation
+ *
+ *	
+ * @param src Pointer to source of dynamic memory to be freed
+ *
+ * @return void
+ */
+void free_words(int32_t* src);
 
 #endif /* __MEMORY_H__ */

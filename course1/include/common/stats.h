@@ -15,7 +15,7 @@
  * Program is meant to perform statistics on an array of data
  *
  * @author Joey Lynch
- * @date May 17, 2020
+ * @date May 17, 2020 (Modified June 1 2020)
  *
  */
 #ifndef __STATS_H__
@@ -44,6 +44,8 @@ void print_statistics(int med, int mean, int max, int min);
 /**
  * @brief function that prints a data array of unsigned chars and it's length
  *
+ *	If the user specifies the -DVERBOSE flag then the function prints
+ *	normally. If not defined nothing will print.
  *
  * @param data a pointer to the data array of unsigned char
  *
