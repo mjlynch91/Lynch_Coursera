@@ -2,17 +2,24 @@
 #include <stdio.h>
 
 #define MAX_LENGTH 100
+
+uint8_t my_itoa(int32_t data, uint8_t* ptr, uint32_t base);
+int32_t power(int32_t base, int32_t exponent);
+int32_t my_atoi(uint8_t* ptr, uint8_t digits, uint32_t base);
+int32_t find_newline(uint8_t* list, int32_t length);
+
+int main(){
+	
+
+	return 0;
+}
+
 /***********************************************************
  Function Definitions
 ***********************************************************/
 //Integer to ASCII
 uint8_t my_itoa(int32_t data, uint8_t* ptr, uint32_t base){
-	
-	//Step 1: Assuming data is a decimal value, convert it to proper base
-	//Step 2: Split the digits up into a list of char
-	//Step 3: Change each char in the list to an ASCII value
-	//Step 4: Store the ASCII characters in the proper place in memory
-	
+
 	uint32_t str_length = 0;
 	uint8_t remainder;
 	uint8_t sign;
@@ -25,13 +32,11 @@ uint8_t my_itoa(int32_t data, uint8_t* ptr, uint32_t base){
 			str_length++;}
 	while(data != 0){
 		remainder = data % base;
-		printf("Remainder before conversion: %d\n", remainder);
 		if(remainder < 10)
 			remainder += 48; //48 is the ascii for '0'
 		else if(remainder >= 10 && remainder <= 16)
 			remainder += 87; //97 is ascii for 'a'. So add 87 to 10th digit to get 'a'
 		data /= base;
-		printf("Remainder after conversion %c or %d\n", remainder, remainder);
 		*(ptr+str_length) = remainder;
 		str_length++;
 	};
@@ -41,6 +46,7 @@ uint8_t my_itoa(int32_t data, uint8_t* ptr, uint32_t base){
 	return(str_length);
 };
 
+//Used in the ASCII to integer function
 int32_t power(int32_t base, int32_t exponent){
 	int32_t i = 0;
 	int32_t result = 1;
@@ -67,18 +73,15 @@ int32_t my_atoi(uint8_t* ptr, uint8_t digits, uint32_t base){
 		else if(current_digit == 45) //45 is ascii for '-'
 			sign = 45;
 		else
-			printf("You entered in an incorrect digit!");
-		printf("\ncurrent digit = %d\n",current_digit);
+			//something to handle unknown input characters
 		result += current_digit*power(base, i);
 		if(sign == 45)
 			result *= -1;
-		printf("current result = %d",result);
 	}
 	return(result);
 }
 
-
-
+//Used in the ASCII to integer function
 int32_t find_newline(uint8_t* list, int32_t length){
 	int32_t i = 0;
 	uint8_t current_char;
@@ -88,45 +91,4 @@ int32_t find_newline(uint8_t* list, int32_t length){
 			return i;
 		printf("Current character: %c\n", current_char);
 	};
-}
-
-int main(){
-	
-	//Testing the itoa function
-	// int32_t value, base = 0;
-	// printf("Enter the decimal value you would like to convert: ");
-	// scanf("%d", &value);
-	// printf("\nEnter the base you would like to convert to: ");
-	// scanf("%d", &base);
-	
-	// uint8_t ptr[MAX_LENGTH];
-	// uint8_t str_length = my_itoa(value, ptr, base);
-	// printf("Your decimal value is: %d\nYour new value in base %d is ", value, base);
-	// int32_t i = 0;
-	// for(i = str_length-1; i >= 0; i--){
-	// printf("%c", *(ptr+i));
-	// }
-	
-	//Testing the atoi function
-	uint8_t value[MAX_LENGTH];
-	uint32_t base;
-	printf("Enter the value you would like to convert to decimal (use 'a' for eleventh digits, 'b' for twelth digits, etc for bases larger than decimal): ");
-	fgets(value, MAX_LENGTH, stdin);
-	int32_t num_digits = find_newline(value, MAX_LENGTH);
-	printf("Length of the value you entered is = %d", num_digits);
-	
-	printf("\nEnter the base of your value: ");
-	scanf("%d", &base);
-	// printf("\nEnter the number of digits in your value: ");
-	// scanf("%d", &num_digits);
-	
-	int32_t result = my_atoi(value, num_digits, base);
-	printf("\n%d\n", result);
-	printf("Your value in base %d is: %s\nYour new value in decimal is %d", base, value, result);
-	// int32_t i = 0;
-	// for(i = number_of_digits-1; i >= 0; i--){
-	// printf("(%d)", result[i]);
-	// }
-	
-	return 0;
 }
