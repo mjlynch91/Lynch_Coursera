@@ -30,7 +30,7 @@ uint8_t my_itoa(int32_t data, uint8_t* ptr, uint32_t base);
  *	Can handle signed data.
  *
  * @param ptr Pointer to the ASCII character string to be converted to an unsigned integer
- * @param digits Pointer to the location to store ASCII string
+ * @param digits The number of digits in the character set
  * @param base Integer value of the base you wish to convert to (2 for binary, 10 for decimal, 16 for hexidecimal)
  *
  * @return converted 32-bit signed integer
