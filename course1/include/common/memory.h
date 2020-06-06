@@ -102,7 +102,7 @@ void clear_all(char * ptr, unsigned int size);
  *
  * @return pointer to destination
  */
-uint8_t* my_memmove(uint8_t* src, uint8_t* dst, sizt_t length);
+uint8_t* my_memmove(uint8_t* src, uint8_t* dst, size_t length);
 
 /**
  * @brief Copies data from one location in memory to another location
@@ -162,7 +162,7 @@ uint8_t* my_reverse(uint8_t* src, size_t length);
  *
  * @return pointer to memory if successful, or Null Pointer if not successful
  */
-int32_t* resrve_words(size_t length);
+int32_t* reserve_words(size_t length);
 
 /**
  * @brief Free dynamic memory allocation
