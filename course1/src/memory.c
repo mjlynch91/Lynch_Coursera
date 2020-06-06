@@ -21,8 +21,7 @@
  *
  */
 #include "memory.h"
-
-#define MEM_SIZE 100000
+#include <stdlib.h> //malloc and free
 
 /***********************************************************
  Function Definitions
@@ -106,12 +105,10 @@ uint8_t* my_reverse(uint8_t* src, size_t length){
 }
 
 int32_t* reserve_words(size_t length){
-	static int32_t nextAddress = BASE_ADDRESS;
-	void *ptr = (void*)nextAddress;
-	nextAddress += size;
+	int32_t* ptr = malloc(length);
 	return ptr;
 }
 
 void free_words(int32_t* src){
-	return;
+	free(src);
 }

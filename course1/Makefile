@@ -25,7 +25,7 @@ include sources.mk
 
 # Platform Overrides
 PLATFORM = MSP432
-TARGET = c1m2
+TARGET = c1m4
 OBJS = $(SOURCES:.c=.o)
 ASMS = $(SOURCES:.c=.asm)
 IFILES = $(SOURCES:.c=.i)
@@ -37,7 +37,7 @@ ifeq ($(PLATFORM),HOST)
 	ARCH = 
 	SPECS = 
 else
-	LINKER_FILE = ../msp432p401r.lds
+	LINKER_FILE = msp432p401r.lds
 	CPU = cortex-m4
 	ARCH = thumb
 	SPECS = nosys.specs

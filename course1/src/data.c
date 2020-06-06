@@ -12,16 +12,16 @@ int main(){
 	
 	uint8_t value[MAX_LENGTH];
 	uint32_t base;
-	printf("Enter the value you would like to convert to decimal: ");
+	PRINTF("Enter the value you would like to convert to decimal: ");
 	fgets(value, MAX_LENGTH, stdin);
 	uint8_t num_digits = find_newline(value, MAX_LENGTH);
-	printf("Length of the value you enter is = %d", num_digits);
+	PRINTF("Length of the value you enter is = %d", num_digits);
 	
-	printf("\nEnter the base of your value: ");
+	PRINTF("\nEnter the base of your value: ");
 	scanf("%d", &base);
 	int32_t result = my_atoi(value, num_digits, base);
-	printf("\n%d\n", result);
-	printf("Your value in base %d is: %s\nYour new value in decimal is %d", base, value, result);
+	PRINTF("\n%d\n", result);
+	PRINTF("Your value in base %d is: %s\nYour new value in decimal is %d", base, value, result);
 
 	return 0;
 }
@@ -83,11 +83,11 @@ int32_t my_atoi(uint8_t* ptr, uint8_t digits, uint32_t base){
 		else if(current_digit == 65 || current_digit == 66 || current_digit == 67 || current_digit == 68 || current_digit == 69 || current_digit ==70)
 			current_digit-=55; //65 is the ascii of 'A'
 		else
-			printf("You entered in an incorrent digit! This result won't make any sense!\n");
+			PRINTF("You entered in an incorrent digit! This result won't make any sense!\n");
 			//something to handle unknown input characters
 		result += current_digit*power(base, i);
-		printf("current digit = %d\n", current_digit);
-		printf("current result = %d\n", result);
+		PRINTF("current digit = %d\n", current_digit);
+		PRINTF("current result = %d\n", result);
 	}
 	return(result);
 }
@@ -100,6 +100,6 @@ uint8_t find_newline(uint8_t* list, int32_t length){
 		current_char = *(list + i);
 		if(current_char == '\n')
 			return i;
-		printf("Current character: %c\n", current_char);
+		PRINTF("Current character: %c\n", current_char);
 	};
 }

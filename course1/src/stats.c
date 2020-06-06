@@ -46,7 +46,7 @@ void main() {
 	int max;
 	
   /* Statistics and Printing Functions Go Here */
-	printf("Your inital array (before sorting) is:\n");
+	PRINTF("Your inital array (before sorting) is:\n");
 	print_array(test, SIZE);
   
 	median = find_median(test, SIZE);
@@ -54,7 +54,7 @@ void main() {
 	min = find_min(test, SIZE);
 	max = find_max(test, SIZE);
 	
-	printf("Your array after sorting is:\n");
+	PRINTF("Your array after sorting is:\n");
 	sort(test, SIZE);
 	print_array(test, SIZE);
 	print_statistics(median, mean, max, min);
@@ -64,7 +64,7 @@ void main() {
 /* Add other Implementation File Code Here */
 
 void print_statistics(int med, int mean, int max, int min){
-	printf("Median = %d\nMean = %d\nMax = %d\nMin = %d\n",med, mean, max, min);
+	PRINTF("Median = %d\nMean = %d\nMax = %d\nMin = %d\n",med, mean, max, min);
 };
 
 //If the user gives the flag -DVERBOSE then print_array will print the array. If the user doesn't give that flag print_array does nothing.
@@ -72,9 +72,9 @@ void print_statistics(int med, int mean, int max, int min){
 #ifdef VERBOSE
 	void print_array(unsigned char* data, int length){
 		int i;
-		printf("The length of your array is %d\nHere are the elements of your array:\n",length);
+		PRINTF("The length of your array is %d\nHere are the elements of your array:\n",length);
 		for(i = 0; i < length; i++){
-			printf("%d\n",data[i]);
+			PRINTF("%d\n",data[i]);
 		};
 	};
 #else
