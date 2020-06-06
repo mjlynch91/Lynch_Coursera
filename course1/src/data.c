@@ -1,5 +1,4 @@
-// #include "data.h"
-#include <stdio.h>
+#include "data.h"
 
 #define MAX_LENGTH 256 //a 32-bit value in binary needs 32 ASCII characters to represent it and a char is 8-bits therefore MAX_LENGTH is (8*32)=256 
 
@@ -8,23 +7,6 @@ int32_t power(int32_t base, int32_t exponent);
 int32_t my_atoi(uint8_t* ptr, uint8_t digits, uint32_t base);
 uint8_t find_newline(uint8_t* list, int32_t length);
 
-int main(){
-	
-	uint8_t value[MAX_LENGTH];
-	uint32_t base;
-	PRINTF("Enter the value you would like to convert to decimal: ");
-	fgets(value, MAX_LENGTH, stdin);
-	uint8_t num_digits = find_newline(value, MAX_LENGTH);
-	PRINTF("Length of the value you enter is = %d", num_digits);
-	
-	PRINTF("\nEnter the base of your value: ");
-	scanf("%d", &base);
-	int32_t result = my_atoi(value, num_digits, base);
-	PRINTF("\n%d\n", result);
-	PRINTF("Your value in base %d is: %s\nYour new value in decimal is %d", base, value, result);
-
-	return 0;
-}
 
 /***********************************************************
  Function Definitions
@@ -99,7 +81,8 @@ uint8_t find_newline(uint8_t* list, int32_t length){
 	for(i = 0; i < length; i++){
 		current_char = *(list + i);
 		if(current_char == '\n')
-			return i;
+			break;
 		PRINTF("Current character: %c\n", current_char);
 	};
+	return i;
 }

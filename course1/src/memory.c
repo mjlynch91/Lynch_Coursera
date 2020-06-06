@@ -22,6 +22,7 @@
  */
 #include "memory.h"
 #include <stdlib.h> //malloc and free
+#include <stddef.h>
 
 /***********************************************************
  Function Definitions
@@ -86,13 +87,6 @@ uint8_t* my_memzero(uint8_t* src, size_t length){
 	return src;
 }
 
-void swap(int* a,int* b)
-{
-	int temp = *a;
-	*a = *b;
-	*b =temp;
-}
-
 uint8_t* my_reverse(uint8_t* src, size_t length){
 	int i;
 	uint8_t temp = 0;
@@ -109,6 +103,6 @@ int32_t* reserve_words(size_t length){
 	return ptr;
 }
 
-void free_words(int32_t* src){
+void free_words(uint32_t* src){ //I had to change the argument to type uint32_t* because that's how it's called in course1.c
 	free(src);
 }

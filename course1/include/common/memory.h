@@ -19,6 +19,8 @@
  * @date April 1 2017
  *
  */
+#include <stddef.h>
+ 
 #ifndef __MEMORY_H__
 #define __MEMORY_H__
 
@@ -172,6 +174,6 @@ int32_t* reserve_words(size_t length);
  *
  * @return void
  */
-void free_words(int32_t* src);
+void free_words(uint32_t* src); //I had to change the argument to type uint32_t* because that's how it's called in course1.c
 
 #endif /* __MEMORY_H__ */
