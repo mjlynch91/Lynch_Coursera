@@ -18,17 +18,24 @@
  *
  */
 #include "platform.h"
+#include "data.h"
+#include "stats.h"
+#include "memory.h"
+#include "course1.h"
+
 #include <stdint.h>
-#include "memory.c"
-#include "data.c"
-#include "course1.c"
+#include <stdio.h>
+// #include "memory.c"
+// #include "data.c"
+// #include "course1.c"
+// #include "stats.c"
 
 
 
 
 int main(void) {
 	#ifdef COURSE1
-		course1();
+		void course1(void);
 	#endif
   return 0;
 }
