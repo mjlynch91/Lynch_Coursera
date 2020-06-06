@@ -18,6 +18,7 @@
  *
  */
 #include "platform.h"
+#include <stdint.h>
 #include "memory.c"
 #include "data.c"
 #include "course1.c"

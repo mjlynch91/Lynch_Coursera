@@ -22,7 +22,8 @@
  */
 #include "memory.h"
 #include <stdlib.h> //malloc and free
-#include <stddef.h>
+#include <stdint.h>
+#include "platform.h"
 
 /***********************************************************
  Function Definitions

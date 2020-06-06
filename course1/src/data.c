@@ -1,4 +1,6 @@
 #include "data.h"
+#include <stdint.h>
+#include "platform.h"
 
 #define MAX_LENGTH 256 //a 32-bit value in binary needs 32 ASCII characters to represent it and a char is 8-bits therefore MAX_LENGTH is (8*32)=256 
 

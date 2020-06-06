@@ -20,6 +20,7 @@
  *
  */
 #include <stddef.h>
+#include <stdint.h>
  
 #ifndef __MEMORY_H__
 #define __MEMORY_H__

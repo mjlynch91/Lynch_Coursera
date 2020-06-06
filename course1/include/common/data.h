@@ -8,7 +8,7 @@
  * @date June 1 2020
  *
  */
- 
+ #include <stdint.h>
 /**
  * @brief Converts a signed 32-bit integer into an ASCII string
  *
