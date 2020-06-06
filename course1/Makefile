@@ -24,7 +24,7 @@
 include sources.mk
 
 # Platform Overrides
-PLATFORM = MSP432
+PLATFORM = HOST
 TARGET = c1m4
 OBJS = $(SOURCES:.c=.o)
 ASMS = $(SOURCES:.c=.asm)
@@ -32,7 +32,7 @@ IFILES = $(SOURCES:.c=.i)
 
 ifeq ($(PLATFORM),HOST)
 	# Architectures Specific Flags
-	LINKER_FILE =
+	LINKER_FILE = 
 	CPU = 
 	ARCH = 
 	SPECS = 
@@ -48,7 +48,7 @@ ifeq ($(PLATFORM),HOST)
 	CC = gcc
 	LD = 
 	LDFLAGS = 
-	CFLAGS = -Wall -Werror -g -O0 -std=c99 $(INCLUDES) -D$(PLATFORM)
+	CFLAGS = -Wall -Werror -g -O0 -std=c99 $(INCLUDES) -D$(PLATFORM) -DCOURSE1 -DVERBOSE 
 	CPPFLAGs = 
 else
 	CC = arm-none-eabi-gcc

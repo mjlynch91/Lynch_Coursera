@@ -22,21 +22,14 @@
 #include "stats.h"
 #include "memory.h"
 #include "course1.h"
-
-#include <stdint.h>
 #include <stdio.h>
-// #include "memory.c"
-// #include "data.c"
-// #include "course1.c"
-// #include "stats.c"
-
-
-
+#define PRINTF(...) printf(__VA_ARGS__)
+#include <stdint.h>
 
 int main(void) {
 	#ifdef COURSE1
-		void course1(void);
+		course1();
 	#endif
-  return 0;
+	return 0;
 }
 

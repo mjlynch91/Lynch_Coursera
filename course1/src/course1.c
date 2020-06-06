@@ -23,7 +23,8 @@
 #include "memory.h"
 #include "data.h"
 #include "stats.h"
-
+#include <stdio.h>
+#define PRINTF(...) printf(__VA_ARGS__)
 #define BASE_16 16
 #define BASE_10 10
 

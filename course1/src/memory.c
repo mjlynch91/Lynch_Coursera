@@ -24,7 +24,8 @@
 #include <stdlib.h> //malloc and free
 #include <stdint.h>
 #include "platform.h"
-
+#include <stdio.h>
+#define PRINTF(...) printf(__VA_ARGS__)
 /***********************************************************
  Function Definitions
 ***********************************************************/

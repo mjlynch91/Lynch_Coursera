@@ -8,7 +8,7 @@
 # misuse of this material. 
 #
 #*****************************************************************************
-
+PLATFORM = HOST
 # Add your Source files to this variable
 ifeq ($(PLATFORM),HOST)
 	SOURCES = src/main.c \

@@ -28,7 +28,8 @@
 #include <limits.h>
 #include "stats.h"
 #include "platform.h"
-
+#include <stdio.h>
+#define PRINTF(...) printf(__VA_ARGS__)
 /* Size of the Data Set */
 #define SIZE (40)
 

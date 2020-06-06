@@ -1,7 +1,8 @@
 #include "data.h"
 #include <stdint.h>
 #include "platform.h"
-
+#include <stdio.h>
+#define PRINTF(...) printf(__VA_ARGS__)
 #define MAX_LENGTH 256 //a 32-bit value in binary needs 32 ASCII characters to represent it and a char is 8-bits therefore MAX_LENGTH is (8*32)=256 
 
 uint8_t my_itoa(int32_t data, uint8_t* ptr, uint32_t base);
