@@ -78,6 +78,7 @@ void print_statistics(int med, int mean, int max, int min){
 		for(i = 0; i < length; i++){
 			PRINTF("%d\t",data[i]);
 		};
+		PRINTF("\n");
 	};
 #else
 	void print_array(unsigned char* data, int length){};

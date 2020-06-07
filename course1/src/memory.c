@@ -95,10 +95,11 @@ uint8_t* my_memzero(uint8_t* src, size_t length){
 uint8_t* my_reverse(uint8_t* src, size_t length){
 	int i;
 	uint8_t temp = 0;
-	for(i = 0; i < length; i++){
-		temp = *(src + i);
-		*(src + i) = *(src + length - (i+1));
-		*(src + length - (i+1)) = temp;
+	uint8_t* curr_ptr = src;
+	for(i = 0; i < length/2; i++){
+		temp = *(curr_ptr + i);
+		*(curr_ptr + i) = *(curr_ptr + length - (i + 1));
+		*(curr_ptr + length - (i + 1)) = temp;
 	}
 	return src;
 }
