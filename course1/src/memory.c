@@ -53,9 +53,12 @@ void clear_all(char * ptr, unsigned int size){
 }
 
 uint8_t* my_memmove(uint8_t* src, uint8_t* dst, size_t length){
-	if(src - dst < length)
+	if(src - dst < length){
 		PRINTF(" Your destination had to be moved due to overlap of source and destination!");
 		//dst = new SAFE dst location
+		dst = dst + length;
+	}
+		
 	int i = 0;
 	for(i = 0; i < length; i++){
 		*(dst+i) = *(src+i);
@@ -101,7 +104,7 @@ uint8_t* my_reverse(uint8_t* src, size_t length){
 }
 
 int32_t* reserve_words(size_t length){
-	int32_t* ptr = malloc(length);
+	int32_t* ptr = malloc(4*length);
 	return ptr;
 }
 
