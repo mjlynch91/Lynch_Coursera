@@ -138,7 +138,7 @@ int8_t test_memmove2() {
 
   if (! set )
   {
-    return TEST_ERROR;
+	return TEST_ERROR;
   }
   ptra = &set[0];
   ptrb = &set[8];
@@ -156,6 +156,7 @@ int8_t test_memmove2() {
   {
     if (set[i + 8] != i)
     {
+	  PRINTF("set[%d] = %d doesnt equal %d\n", set[i+8], i+8, i);
       ret = TEST_ERROR;
     }
   }
@@ -195,6 +196,7 @@ int8_t test_memmove3() {
   {
     if (set[i] != (i + 8))
     {
+	  PRINTF("set[%d] = %d doesnt equal %d\n", i, set[i], i+8);
       ret = TEST_ERROR;
     }
   }

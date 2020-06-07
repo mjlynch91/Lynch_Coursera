@@ -53,13 +53,23 @@ void clear_all(char * ptr, unsigned int size){
 }
 
 uint8_t* my_memmove(uint8_t* src, uint8_t* dst, size_t length){
-	if(src - dst < length){
-		PRINTF(" Your destination had to be moved due to overlap of source and destination!");
-		//dst = new SAFE dst location
-		dst = dst + length;
-	}
-		
-	int i = 0;
+	uint8_t i;
+	// PRINTF("Source at %p\tDestination at %p\tLength is %lu\n", src, dst, length);
+	// for(i = 0; i < length; i++){
+		// if(src + i == dst){
+			// PRINTF("The beginning of dst overlaps with the end of src!\n");
+			// PRINTF("i = %d\n", i);
+			// dst += i;
+			// PRINTF("New destination is %p\n",dst);
+		// }
+		// else if(src - i == dst){
+			// PRINTF("The end of dst overlaps with the beginning of src!\n");
+			// PRINTF("i = %d\n", i);
+			// dst -= i;
+			// PRINTF("New destination is %p\n",dst);
+		// }
+	// }
+	
 	for(i = 0; i < length; i++){
 		*(dst+i) = *(src+i);
 	}
@@ -67,7 +77,7 @@ uint8_t* my_memmove(uint8_t* src, uint8_t* dst, size_t length){
 }
 
 uint8_t* my_memcopy(uint8_t* src, uint8_t* dst, size_t length){
-	if(src - dst < length)
+	if(src - dst <= length)
 		PRINTF(" Your destination overlaps with your source so your data may now be corrupted!");
 	int i = 0;
 	for(i = 0; i < length; i++){

@@ -74,7 +74,7 @@ void print_statistics(int med, int mean, int max, int min){
 #ifdef VERBOSE
 	void print_array(unsigned char* data, int length){
 		int i;
-		PRINTF("\nThe length of your array is %d\nHere are the elements of your array:\n",length);
+		// PRINTF("\nThe length of your array is %d\nHere are the elements of your array:\n",length);
 		for(i = 0; i < length; i++){
 			PRINTF("%d\t",data[i]);
 		};

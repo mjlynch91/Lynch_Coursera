@@ -58,11 +58,11 @@ int32_t my_atoi(uint8_t* ptr, uint8_t digits, uint32_t base){ //the base is the 
 		else if(current_digit == 65 || current_digit == 66 || current_digit == 67 || current_digit == 68 || current_digit == 69 || current_digit ==70)
 			current_digit-=55; //65 is the ascii of 'A'
 		else
-			PRINTF("You entered in an incorrent digit! This result won't make any sense!\n");
+			PRINTF("You entered in an incorrect digit! This result won't make any sense!\n");
 			//something to handle unknown input characters
 		result += current_digit*power(base, i);
-		PRINTF("current digit = %d\n", current_digit);
-		PRINTF("current result = %d\n", result);
+		// PRINTF("current digit = %d\n", current_digit);
+		// PRINTF("current result = %d\n", result);
 	}
 	return(result);
 }
