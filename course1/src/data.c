@@ -15,18 +15,10 @@ uint8_t find_newline(uint8_t* list, int32_t length);
  Function Definitions
 ***********************************************************/
 //Integer to ASCII
-uint8_t my_itoa(int32_t data, uint8_t* ptr, uint32_t base){
+uint8_t my_itoa(int32_t data, uint8_t* ptr, uint32_t base){ //the base is the base you wish to convert to
 
 	uint32_t str_length = 0;
 	uint8_t remainder;
-	uint8_t sign;
-	if(data > 0){
-		sign = 43; //43 is ascii for '+'
-		str_length++;}
-	else if(data < 0){
-			sign = 45; //45 is ascii for '-'
-			data *= -1; //convert the data to it's positive
-			str_length++;}
 	while(data != 0){
 		remainder = data % base;
 		if(remainder < 10)
@@ -37,8 +29,6 @@ uint8_t my_itoa(int32_t data, uint8_t* ptr, uint32_t base){
 		*(ptr+str_length) = remainder;
 		str_length++;
 	};
-	*(ptr+str_length) = sign;
-	str_length++;
 	*(ptr+str_length) = '\0';
 	return(str_length);
 };
@@ -54,13 +44,13 @@ int32_t power(int32_t base, int32_t exponent){
 }
 
 //ASCII to Integer
-int32_t my_atoi(uint8_t* ptr, uint8_t digits, uint32_t base){
+int32_t my_atoi(uint8_t* ptr, uint8_t digits, uint32_t base){ //the base is the base you wish to convert to
 	int32_t i = 0;
 	int32_t current_digit = 0;
 	int32_t result = 0;
 	// uint8_t sign; 
 	for(i = 0; i < digits; i++){
-		current_digit = (int32_t)*(ptr + (digits-1-i)); //48 is the ascii value of decimal 0
+		current_digit = (int32_t)*(ptr + i); //48 is the ascii value of decimal 0
 		if(current_digit == 48 || current_digit == 49 || current_digit == 50 || current_digit == 51 || current_digit == 52 || current_digit == 53 || current_digit ==54 || current_digit == 55 || current_digit == 56)
 			current_digit-=48;
 		else if(current_digit == 97 || current_digit == 98 || current_digit == 99 || current_digit == 100 || current_digit == 101 || current_digit ==102)
@@ -76,7 +66,6 @@ int32_t my_atoi(uint8_t* ptr, uint8_t digits, uint32_t base){
 	}
 	return(result);
 }
-
 //Used in the ASCII to integer function
 uint8_t find_newline(uint8_t* list, int32_t length){
 	uint8_t i = 0;
